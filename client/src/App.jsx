@@ -1,10 +1,13 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
+// eslint-disable-next-line import/no-unresolved
+// import useSound from 'use-sound';
 import { MainContainer } from './styles/Styles';
 import { asset } from './components/assets';
 import { Data } from './components/Helper';
 import { Quiz } from './components/questions/Quiz';
 import { Timer } from './components/Timer';
+import { Start } from './components/Start';
 
 export const MainContent = styled.div`
 width: 75%;
@@ -92,9 +95,17 @@ export const App = () => {
     ].reverse(),
     []
   );
+  const [ username, setUserName ] = useState( null );
   const [ questionNumber, setQuestionNumber ] = useState( 1 );
   const [stop, setStop ] = useState( false );
   const [ earned, setEarned ] = useState( '$ 0' );
+  // const [ letPlay ] = useSound( asset.Play );
+  // const [ correctAnswer ] = useSound( asset.Correct );
+  // const [ wrongAnswer ] = useSound( asset.Wrong );
+
+  // useEffect( () => {
+  //   letPlay();
+  // }, [ letPlay ] );
 
   useEffect( () => {
     questionNumber > 1
@@ -102,33 +113,43 @@ export const App = () => {
   }, [ moneyPyramid, questionNumber ] );
   return (
     <MainContainer>
-      <MainContent>
-        { stop ? <h1> You earned: { earned }</h1> : (
-          <>
-            <MainContentTop>
-              <TimerContainer><Timer setStop={ setStop } questionNumber={ questionNumber } /></TimerContainer>
-            </MainContentTop>
-            <MainContentBottom>
-              <Quiz
-                data={Data}
-                setStop={setStop}
-                questionNumber={questionNumber}
-                setQuestionNumber={setQuestionNumber}
-              />
-            </MainContentBottom>
-          </>
-        )}
-      </MainContent>
-      <Pyramid>
-        <MoneyList>
-          {moneyPyramid.map(money => (
-            <li className={questionNumber === money.id ? 'active' : ''}>
-              <span className='number'>{money.id}</span>
-              <span className='amount'>{money.amount}</span>
-            </li>
-          ))}
-        </MoneyList>
-      </Pyramid>
+      {username ? (
+        <>
+          <MainContent>
+            {stop ? (
+              <h1> You earned: {earned}</h1>
+            ) : (
+              <>
+                <MainContentTop>
+                  <TimerContainer>
+                    <Timer setStop={setStop} questionNumber={questionNumber} />
+                  </TimerContainer>
+                </MainContentTop>
+                <MainContentBottom>
+                  <Quiz
+                    data={Data}
+                    setStop={setStop}
+                    questionNumber={questionNumber}
+                    setQuestionNumber={setQuestionNumber}
+                  />
+                </MainContentBottom>
+              </>
+            )}
+          </MainContent>
+          <Pyramid>
+            <MoneyList>
+              {moneyPyramid.map(money => (
+                <li className={questionNumber === money.id ? 'active' : ''}>
+                  <span className='number'>{money.id}</span>
+                  <span className='amount'>{money.amount}</span>
+                </li>
+              ))}
+            </MoneyList>
+          </Pyramid>
+        </>
+      ) : (
+        <Start setUserName={setUserName} />
+      )}
     </MainContainer>
   );
 };

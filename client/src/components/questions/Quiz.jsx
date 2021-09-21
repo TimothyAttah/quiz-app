@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
-// import { Data } from '../Helper';
+// eslint-disable-next-line import/no-unresolved
+// import useSound from 'use-sound';
+// import { asset } from '../assets';
 
 export const QuizContainer = styled.div`
 height: 100%;
@@ -57,6 +59,8 @@ export const Quiz = ( {
   const [ question, setQuestion ] = useState( null );
   const [ selectedAnswer, setSelectedAnswer ] = useState( null );
   const [ className, setClassName ] = useState( 'answer' );
+  // const [correctAnswer] = useSound(asset.Correct);
+  // const [wrongAnswer] = useSound(asset.Wrong);
 
   useEffect( () => {
     setQuestion( data[ questionNumber - 1 ] );
@@ -72,12 +76,18 @@ export const Quiz = ( {
     setSelectedAnswer( answer );
     setClassName( ' active' );
     delay( 3000, () => setClassName( answer.correct ? 'correct' : 'wrong' ) );
-    delay( 6000, () => {
+    delay( 5000, () => {
       if ( answer.correct ) {
-        setQuestionNumber( prev => prev + 1 );
-        setSelectedAnswer( null );
+        // correctAnswer();
+        delay( 1000, () => {
+          setQuestionNumber( prev => prev + 1 );
+          setSelectedAnswer( null );
+        } );
       } else {
-        setStop( true );
+        // wrongAnswer();
+        delay( 1000, () => {
+          setStop( true );
+        } );
       }
     } );
   };
