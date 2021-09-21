@@ -1,15 +1,14 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { MainContainer } from './styles/Styles';
-import { images } from './components/images';
+import { asset } from './components/assets';
 import { Data } from './components/Helper';
 import { Quiz } from './components/questions/Quiz';
 import { Timer } from './components/Timer';
 
 export const MainContent = styled.div`
 width: 75%;
-/* background: url(${images.BackgroundImage}); */
-background: linear-gradient(to bottom, rgba(0,0,0,0), #020230), url(${images.BackgroundImage});
+background: linear-gradient(to bottom, rgba(0,0,0,0), #020230), url(${asset.BackgroundImage});
 display: flex;
 flex-direction: column;
 h1{
