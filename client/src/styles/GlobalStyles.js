@@ -17,4 +17,26 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     list-style: none;
   }
+  @keyframes correct {
+  0%,22%,42%{
+    background: mediumblue;
+  }
+  20%,40%,60%{
+    background: linear-gradient(#0e0124, #22074d);
+  }
+  62%,100%{
+    background: green;
+  }
+}
+  @keyframes wrong {
+  0%,22%,42%{
+    background: mediumblue;
+  }
+  20%,40%,60%{
+    background: linear-gradient(#0e0124, #22074d);
+  }
+  62%,100%{
+    background: crimson;
+  }
+}
 `;

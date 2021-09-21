@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { MainContainer } from './styles/Styles';
 import { images } from './components/images';
-import { moneyPyramid } from './components/Helper';
+import { moneyPyramid, Data } from './components/Helper';
+import { Quiz } from './components/questions/Quiz';
 
 export const MainContent = styled.div`
 width: 75%;
@@ -10,6 +11,14 @@ width: 75%;
 background: linear-gradient(to bottom, rgba(0,0,0,0), #020230), url(${images.BackgroundImage});
 display: flex;
 flex-direction: column;
+h1{
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
 `;
 export const Pyramid = styled.div`
 width: 25%;
@@ -63,24 +72,39 @@ li{
 `;
 
 export const App = () => {
-  const [ questionNumber ] = useState( 1 );
-  // const [ questionNumber, setQuestionNumber ] = useState( 1 );
+  const [ questionNumber, setQuestionNumber ] = useState( 1 );
+  const [stop, setStop ] = useState( false );
+  const [ earned, setEarned ] = useState( '$ 0' );
+
+  useEffect( () => {
+    questionNumber > 1
+      && setEarned( moneyPyramid.find( m => m.id === questionNumber - 1 ).amount );
+  }, [ moneyPyramid, questionNumber ] );
   return (
     <MainContainer>
       <MainContent>
-        <MainContentTop>
-          <Timer>30</Timer>
-        </MainContentTop>
-        <MainContentBottom>
-          questions and answers
-        </MainContentBottom>
+        { stop ? <h1> You earned: { earned }</h1> : (
+          <>
+            <MainContentTop>
+              <Timer>30</Timer>
+            </MainContentTop>
+            <MainContentBottom>
+              <Quiz
+                data={Data}
+                setStop={setStop}
+                questionNumber={questionNumber}
+                setQuestionNumber={setQuestionNumber}
+              />
+            </MainContentBottom>
+          </>
+        )}
       </MainContent>
       <Pyramid>
         <MoneyList>
-          { moneyPyramid.map( money => (
+          {moneyPyramid.map(money => (
             <li className={questionNumber === money.id ? 'active' : ''}>
-              <span className="number">{ money.id }</span>
-              <span className="amount">{money.amount}</span>
+              <span className='number'>{money.id}</span>
+              <span className='amount'>{money.amount}</span>
             </li>
           ))}
         </MoneyList>
