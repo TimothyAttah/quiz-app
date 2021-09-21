@@ -4,6 +4,7 @@ import { MainContainer } from './styles/Styles';
 import { images } from './components/images';
 import { Data } from './components/Helper';
 import { Quiz } from './components/questions/Quiz';
+import { Timer } from './components/Timer';
 
 export const MainContent = styled.div`
 width: 75%;
@@ -33,7 +34,7 @@ position: relative;
 export const MainContentBottom = styled.div`
 height: 50%;
 `;
-export const Timer = styled.div`
+export const TimerContainer = styled.div`
 width: 70px;
 height: 70px;
 border-radius: 50%;
@@ -106,7 +107,7 @@ export const App = () => {
         { stop ? <h1> You earned: { earned }</h1> : (
           <>
             <MainContentTop>
-              <Timer>30</Timer>
+              <TimerContainer><Timer setStop={ setStop } questionNumber={ questionNumber } /></TimerContainer>
             </MainContentTop>
             <MainContentBottom>
               <Quiz
