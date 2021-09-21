@@ -22,15 +22,35 @@ h1{
   right: 0;
   margin: auto;
 }
+@media (max-width: 750px){
+  width: 70%;
+}
+@media (max-width: 450px){
+  width: 60%;
+  h1 {
+    font-size: 22px;
+  }
+}
+@media (max-width: 280px){
+  h1 {
+    font-size: 18px;
+  }
+}
 `;
 export const Pyramid = styled.div`
 width: 25%;
 display: flex;
 align-items: center;
 justify-content: center;
+@media (max-width: 750px){
+  width: 30%;
+}
+@media (max-width: 450px){
+  width: 40%;
+}
 `;
 export const MainContentTop = styled.div`
-height: 50%;
+height: 30%;
 position: relative;
 `;
 export const MainContentBottom = styled.div`
@@ -47,8 +67,11 @@ justify-content: center;
 font-size: 30px;
 font-weight: 700;
 position: absolute;
-bottom: 10px;
+bottom: 20px;
 left: 80px;
+@media (max-width: 320px){
+  left: 50px;
+}
 `;
 
 const MoneyList = styled.ul`
@@ -71,6 +94,38 @@ li{
 }
 .active{
    background-color: teal;
+}
+@media (max-width: 750px){
+li {
+  .number {
+    font-size: 15px;
+  }
+  .amount{
+    font-size: 18px;
+  }
+}
+}
+@media (max-width: 540px){
+  padding: 10px;
+li {
+  .number {
+    font-size: 12px;
+  }
+  .amount{
+    font-size: 15px;
+  }
+}
+}
+@media (max-width: 320px){
+  padding: 10px;
+li {
+  .number {
+    font-size: 10px;
+  }
+  .amount{
+    font-size: 12px;
+  }
+}
 }
 `;
 
@@ -95,7 +150,7 @@ export const App = () => {
     ].reverse(),
     []
   );
-  const [ username, setUserName ] = useState( null );
+  const [ username, setUsername ] = useState( null );
   const [ questionNumber, setQuestionNumber ] = useState( 1 );
   const [stop, setStop ] = useState( false );
   const [ earned, setEarned ] = useState( '$ 0' );
@@ -113,7 +168,7 @@ export const App = () => {
   }, [ moneyPyramid, questionNumber ] );
   return (
     <MainContainer>
-      {username ? (
+      {!username ? (
         <>
           <MainContent>
             {stop ? (
@@ -148,7 +203,7 @@ export const App = () => {
           </Pyramid>
         </>
       ) : (
-        <Start setUserName={setUserName} />
+        <Start setUsername={setUsername} />
       )}
     </MainContainer>
   );
