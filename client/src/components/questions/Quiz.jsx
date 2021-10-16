@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 // eslint-disable-next-line import/no-unresolved
@@ -31,7 +32,7 @@ justify-content: space-around;
 `;
 
 export const Answers = styled.div`
-width: 100%;
+width: 98%;
 display: flex;
 justify-content: center;
 flex-wrap: wrap;
