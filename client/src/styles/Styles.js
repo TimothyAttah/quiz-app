@@ -34,12 +34,12 @@ export const MainContent = styled.div`
 	@media (max-width: 450px) {
 		width: 60%;
 		h1 {
-			font-size: 22px;
+			font-size: 1.8rem;
 		}
 	}
 	@media (max-width: 280px) {
 		h1 {
-			font-size: 18px;
+			font-size: 1.4rem;
 		}
 	}
 `;
@@ -89,12 +89,12 @@ export const MoneyList = styled.ul`
 		padding: 5px;
 		border-radius: 5px;
 		.number {
-			font-size: 18px;
+			font-size: 1.7rem;
 			font-weight: 100;
 			width: 30%;
 		}
 		.amount {
-			font-size: 20px;
+			font-size: 1.5rem;
 			font-weight: 300;
 		}
 	}
@@ -104,10 +104,10 @@ export const MoneyList = styled.ul`
 	@media (max-width: 750px) {
 		li {
 			.number {
-				font-size: 15px;
+				font-size: 1rem;
 			}
 			.amount {
-				font-size: 18px;
+				font-size: 1.2rem;
 			}
 		}
 	}
@@ -115,10 +115,10 @@ export const MoneyList = styled.ul`
 		padding: 10px;
 		li {
 			.number {
-				font-size: 12px;
+				font-size: 0.7rem;
 			}
 			.amount {
-				font-size: 15px;
+				font-size: 0.8rem;
 			}
 		}
 	}
@@ -126,11 +126,49 @@ export const MoneyList = styled.ul`
 		padding: 10px;
 		li {
 			.number {
-				font-size: 10px;
+				font-size: 0.6rem;
 			}
 			.amount {
-				font-size: 12px;
+				font-size: 0.9;
 			}
 		}
 	}
+`;
+
+export const Review = styled.div`
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-top: 300px;
+h1{
+  font-size: 3rem;
+}
+h3{
+  font-size: 2rem;
+  margin: 20px 0;
+}
+button{
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+@media (max-width: 450px){
+  h1{
+    font-size: 1.5rem;
+  }
+  h3{
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 320px){
+  h1{
+    font-size: 1.2rem;
+  }
+  h3{
+    font-size: 1rem;
+  }
+}
 `;

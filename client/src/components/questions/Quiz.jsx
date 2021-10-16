@@ -1,4 +1,8 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
+/* eslint-disable no-tabs */
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
+import { any } from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 // eslint-disable-next-line import/no-unresolved
@@ -94,6 +98,8 @@ export const Quiz = ( {
     }, duration );
   };
 
+  console.log('question>>>>>>>', setQuestionNumber);
+
   const handleClick = (answer) => {
     setSelectedAnswer( answer );
     setClassName( ' active' );
@@ -105,6 +111,10 @@ export const Quiz = ( {
           setQuestionNumber( prev => prev + 1 );
           setSelectedAnswer( null );
         } );
+      } else if ( data.length === answer.correct ) {
+        setQuestionNumber( null );
+        setSelectedAnswer( null );
+        setStop( true );
       } else {
         // wrongAnswer();
         delay( 1000, () => {
@@ -116,15 +126,19 @@ export const Quiz = ( {
 
   return (
     <QuizContainer>
-      <div className='question'>{question?.question}</div>
+      {data.length + 1 > questionNumber ? (
+        <div className='question'>{question?.question}</div>
+      ) : (
+			  setStop(true)
+      )}
       <Answers>
         {question?.answers.map(answer => (
           <Answers
             primary
             className={selectedAnswer === answer ? className : 'answer'}
-            onClick={ () => handleClick( answer ) }
+            onClick={() => handleClick(answer)}
           >
-            { answer.text }
+            {answer.text}
           </Answers>
         ))}
       </Answers>
