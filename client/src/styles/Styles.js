@@ -172,3 +172,16 @@ button{
   }
 }
 `;
+
+export const StartTimer = styled.div`
+	width: 100%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 100px;
+	h1 {
+		font-size: 3rem;
+	}
+`;
