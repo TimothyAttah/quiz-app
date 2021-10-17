@@ -1,5 +1,3 @@
-/* eslint-disable no-mixed-spaces-and-tabs */
-/* eslint-disable no-tabs */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import { any } from 'prop-types';
@@ -97,8 +95,6 @@ export const Quiz = ( {
       callback();
     }, duration );
   };
-
-  console.log('question>>>>>>>', setQuestionNumber);
 
   const handleClick = (answer) => {
     setSelectedAnswer( answer );
