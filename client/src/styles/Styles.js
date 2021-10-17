@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 import {
   asset
-} from '../components/assets';
+} from '../components/Assets';
 
 export const MainContainer = styled.div`
 	max-width: 1500px;

@@ -39,7 +39,7 @@ export const App = () => {
 	const [stop, setStop] = useState(false);
   const [ start, setStart ] = useState( false );
 	const [timer, setTimer] = useState(5);
-	const [earned, setEarned] = useState('$ 0');
+	const [ earned, setEarned ] = useState( '$ 0' );
 
 	useEffect(() => {
 		questionNumber > 1
