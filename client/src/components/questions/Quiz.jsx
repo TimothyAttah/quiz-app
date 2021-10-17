@@ -3,9 +3,8 @@
 import { any } from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
-// eslint-disable-next-line import/no-unresolved
-// import useSound from 'use-sound';
-// import { asset } from '../assets';
+import useSound from 'use-sound';
+import { asset } from '../assets';
 
 export const QuizContainer = styled.div`
 height: 100%;
@@ -80,64 +79,69 @@ export const Quiz = ( {
   // eslint-disable-next-line react/prop-types
   data, questionNumber, setQuestionNumber, setStop
 } ) => {
-  const [ question, setQuestion ] = useState( null );
-  const [ selectedAnswer, setSelectedAnswer ] = useState( null );
-  const [ className, setClassName ] = useState( 'answer' );
-  // const [correctAnswer] = useSound(asset.Correct);
-  // const [wrongAnswer] = useSound(asset.Wrong);
+	const [question, setQuestion] = useState(null);
+	const [selectedAnswer, setSelectedAnswer] = useState(null);
+	const [className, setClassName] = useState('answer');
+	const [ letPlay ] = useSound( asset.Play );
+	const [correctAnswer] = useSound(asset.Correct);
+	const [wrongAnswer] = useSound(asset.Wrong);
 
-  useEffect( () => {
-    setQuestion( data[ questionNumber - 1 ] );
-  }, [ data, questionNumber ] );
+	useEffect(() => {
+		letPlay();
+	}, [letPlay]);
 
-  const delay = ( duration, callback ) => {
-    setTimeout( () => {
-      callback();
-    }, duration );
-  };
+	useEffect(() => {
+		setQuestion(data[questionNumber - 1]);
+	}, [data, questionNumber]);
 
-  const handleClick = (answer) => {
-    setSelectedAnswer( answer );
-    setClassName( ' active' );
-    delay( 3000, () => setClassName( answer.correct ? 'correct' : 'wrong' ) );
-    delay( 5000, () => {
-      if ( answer.correct ) {
-        // correctAnswer();
-        delay( 1000, () => {
-          setQuestionNumber( prev => prev + 1 );
-          setSelectedAnswer( null );
-        } );
-      } else if ( data.length === answer.correct ) {
-        setQuestionNumber( null );
-        setSelectedAnswer( null );
-        setStop( true );
-      } else {
-        // wrongAnswer();
-        delay( 1000, () => {
-          setStop( true );
-        } );
-      }
-    } );
-  };
+	const delay = (duration, callback) => {
+		setTimeout(() => {
+			callback();
+		}, duration);
+	};
 
-  return (
-    <QuizContainer>
-      {data.length + 1 > questionNumber ? (
-        <div className='question'>{question?.question}</div>
-      ) : (
-			  setStop(true)
-      )}
-      <Answers>
-        {question?.answers.map(answer => (
-          <Answers
-            primary
-            className={selectedAnswer === answer ? className : 'answer'}
-            onClick={() => handleClick(answer)}
-          >
-            {answer.text}
-          </Answers>
-        ))}
-      </Answers>
-    </QuizContainer>
-  );
+	const handleClick = answer => {
+		setSelectedAnswer(answer);
+		setClassName(' active');
+		delay(3000, () => setClassName(answer.correct ? 'correct' : 'wrong'));
+		delay(5000, () => {
+			if (answer.correct) {
+				correctAnswer();
+				delay(1000, () => {
+					setQuestionNumber(prev => prev + 1);
+					setSelectedAnswer(null);
+				});
+			} else if (data.length === answer.correct) {
+				setQuestionNumber(null);
+				setSelectedAnswer(null);
+				setStop(true);
+			} else {
+				wrongAnswer();
+				delay(1000, () => {
+					setStop(true);
+				});
+			}
+		});
+	};
+
+	return (
+		<QuizContainer>
+			{data.length + 1 > questionNumber ? (
+				<div className='question'>{question?.question}</div>
+			) : (
+				setStop(true)
+			)}
+			<Answers>
+				{question?.answers.map(answer => (
+					<Answers
+						primary
+						className={selectedAnswer === answer ? className : 'answer'}
+						onClick={() => handleClick(answer)}
+					>
+						{answer.text}
+					</Answers>
+				))}
+			</Answers>
+		</QuizContainer>
+	);
 };

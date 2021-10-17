@@ -1,6 +1,4 @@
 import React, { useEffect, useMemo, useState } from 'react';
-// eslint-disable-next-line import/no-unresolved
-// import useSound from 'use-sound';
 import { Data } from './components/Helper';
 import { Quiz } from './components/questions/Quiz';
 import { Timer } from './components/Timer';
@@ -42,13 +40,6 @@ export const App = () => {
   const [ start, setStart ] = useState( false );
 	const [timer, setTimer] = useState(5);
 	const [earned, setEarned] = useState('$ 0');
-	// const [ letPlay ] = useSound( asset.Play );
-	// const [ correctAnswer ] = useSound( asset.Correct );
-	// const [ wrongAnswer ] = useSound( asset.Wrong );
-
-	// useEffect( () => {
-	//   letPlay();
-	// }, [ letPlay ] );
 
 	useEffect(() => {
 		questionNumber > 1
