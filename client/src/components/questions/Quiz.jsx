@@ -1,6 +1,4 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
-import { any } from 'prop-types';
+import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import useSound from 'use-sound';
@@ -76,7 +74,6 @@ cursor: pointer;
 `;
 
 export const Quiz = ( {
-  // eslint-disable-next-line react/prop-types
   data, questionNumber, setQuestionNumber, setStop
 } ) => {
 	const [question, setQuestion] = useState(null);
@@ -144,4 +141,11 @@ export const Quiz = ( {
 			</Answers>
 		</QuizContainer>
 	);
+};
+
+Quiz.propTypes = {
+  data: PropTypes.func.isRequired,
+  questionNumber: PropTypes.number.isRequired,
+  setQuestionNumber: PropTypes.number.isRequired,
+  setStop: PropTypes.bool.isRequired
 };
