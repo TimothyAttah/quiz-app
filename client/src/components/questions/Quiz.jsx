@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import useSound from 'use-sound';
-import { asset } from '../Assets';
+import { asset } from '../assets';
 import { QuizContainer, Answers } from './QuizStyles';
 
 export const Quiz = ( {
