@@ -6,16 +6,25 @@ export const GlobalStyle = createGlobalStyle`
   --bg-white: #ffffff;
   --text-white: #ffffff;
 }
+html{
+  font-size: 16px;
+}
   *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
   }
+
   ul{
     margin: 0;
     padding: 0;
     list-style: none;
+  }
+  button{
+    border: none;
+    outline: none;
+    cursor: pointer;
   }
   @keyframes correct {
   0%,22%,42%{

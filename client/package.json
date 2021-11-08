@@ -19,6 +19,7 @@
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.3",
     "styled-components": "^5.2.1",
+    "use-sound": "^3.0.1",
     "uuid": "^8.3.2",
     "web-vitals": "^1.1.0"
   },

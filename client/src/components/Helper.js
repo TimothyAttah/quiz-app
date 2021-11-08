@@ -46,6 +46,270 @@ export const Data = [
   },
   {
     id: 2,
+    question: 'To christian believers, Jesus is the son of ________',
+    answers: [
+      {
+        text: 'God',
+        correct: true,
+      },
+      {
+        text: 'Mary',
+        correct: false,
+      },
+      {
+        text: 'Joseph',
+        correct: false,
+      },
+      {
+        text: 'All of the above',
+        correct: false,
+      },
+    ],
+  },
+  {
+    id: 3,
+    question: 'Eyes is to see, hand is to __________',
+    answers: [
+      {
+        text: 'play',
+        correct: false,
+      },
+      {
+        text: 'touch',
+        correct: true,
+      },
+      {
+        text: 'sing',
+        correct: false,
+      },
+      {
+        text: 'sit',
+        correct: false,
+      },
+    ],
+  },
+  {
+    id: 4,
+    question: 'Dancing, is to dance to _____________',
+    answers: [
+      {
+        text: 'music',
+        correct: false,
+      },
+      {
+        text: 'lyrics',
+        correct: false,
+      },
+      {
+        text: 'beat',
+        correct: true,
+      },
+      {
+        text: 'sound',
+        correct: false,
+      },
+    ],
+  },
+  {
+    id: 5,
+    question: 'Which is the means of transportation?',
+    answers: [
+      {
+        text: 'Auto mobile',
+        correct: false,
+      },
+      {
+        text: 'Camel',
+        correct: false,
+      },
+      {
+        text: 'Train',
+        correct: false,
+      },
+      {
+        text: 'All of the above',
+        correct: true,
+      },
+    ],
+  },
+  {
+    id: 6,
+    question: 'A candle is made up of _____________',
+    answers: [
+      {
+        text: 'light',
+        correct: false,
+      },
+      {
+        text: 'wax',
+        correct: true,
+      },
+      {
+        text: 'tread',
+        correct: false,
+      },
+      {
+        text: 'chemical',
+        correct: false,
+      },
+    ],
+  },
+  {
+    id: 7,
+    question: 'Which is not the means of communication?',
+    answers: [
+      {
+        text: 'Phone',
+        correct: false,
+      },
+      {
+        text: 'Drum',
+        correct: false,
+      },
+      {
+        text: 'Trumpet',
+        correct: false,
+      },
+      {
+        text: 'None of the above',
+        correct: true,
+      },
+    ],
+  },
+  {
+    id: 8,
+    question: 'A school is where they ___________',
+    answers: [
+      {
+        text: 'Instructs',
+        correct: false,
+      },
+      {
+        text: 'Educates',
+        correct: true,
+      },
+      {
+        text: 'Teach',
+        correct: false,
+      },
+      {
+        text: 'None of the above',
+        correct: false,
+      },
+    ],
+  },
+  {
+    id: 9,
+    question: 'December 25th is also known as?',
+    answers: [
+      {
+        text: 'Boxing Day',
+        correct: false,
+      },
+      {
+        text: 'Birth of Christ',
+        correct: false,
+      },
+      {
+        text: 'Christmas',
+        correct: true,
+      },
+      {
+        text: 'Just a day',
+        correct: false,
+      },
+    ],
+  },
+  {
+    id: 10,
+    question: 'A prison is where they keep ___________',
+    answers: [
+      {
+        text: 'Criminals',
+        correct: true,
+      },
+      {
+        text: 'Bad guys',
+        correct: true,
+      },
+      {
+        text: 'Human beings',
+        correct: false,
+      },
+      {
+        text: 'All of the above',
+        correct: false,
+      },
+    ],
+  },
+  {
+    id: 11,
+    question: 'Who is the founder of facebook?',
+    answers: [
+      {
+        text: 'Mark Zukerberg',
+        correct: true,
+      },
+      {
+        text: 'Bill Gates',
+        correct: false,
+      },
+      {
+        text: 'Ali Baba',
+        correct: false,
+      },
+      {
+        text: 'Bill Clinton',
+        correct: false,
+      },
+    ],
+  },
+  {
+    id: 12,
+    question: 'Computers read codes in which language?',
+    answers: [
+      {
+        text: 'English',
+        correct: false,
+      },
+      {
+        text: 'Java',
+        correct: false,
+      },
+      {
+        text: 'French',
+        correct: false,
+      },
+      {
+        text: 'Ones and Zeroes',
+        correct: true,
+      },
+    ],
+  },
+  {
+    id: 13,
+    question: 'Who is the movie producer of Harry Potter?',
+    answers: [
+      {
+        text: 'Ralph Fiennes',
+        correct: false,
+      },
+      {
+        text: 'J.K Rowling',
+        correct: true,
+      },
+      {
+        text: 'Steve Kloves',
+        correct: false,
+      },
+      {
+        text: 'Mark Day',
+        correct: false,
+      },
+    ],
+  },
+  {
+    id: 14,
     question: 'When did the websites `Facebook` launch?',
     answers: [
       {
@@ -67,11 +331,11 @@ export const Data = [
     ],
   },
   {
-    id: 3,
+    id: 15,
     question: 'Who played the character of Harry potter in movie?',
     answers: [
       {
-        text: 'Johnny Deep',
+        text: 'Rupert Grint',
         correct: false,
       },
       {
@@ -83,7 +347,7 @@ export const Data = [
         correct: false,
       },
       {
-        text: 'Daniel Red Cliff',
+        text: 'Daniel Radcliffe',
         correct: true,
       },
     ],

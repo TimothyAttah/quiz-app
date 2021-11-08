@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 export const Timer = ({ setStop, questionNumber }) => {
   const [ timer, setTimer ] = useState( 30 );
@@ -21,4 +21,9 @@ export const Timer = ({ setStop, questionNumber }) => {
       {timer}
     </div>
   );
+};
+
+Timer.propTypes = {
+  setStop: PropTypes.bool.isRequired,
+  questionNumber: PropTypes.number.isRequired
 };
